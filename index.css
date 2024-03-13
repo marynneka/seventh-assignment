@@ -45,11 +45,20 @@ main{
 }
 .side{
     background-color: white;
-    padding-top: 30px;
+    padding: 30px;
     line-height: 60px;
     
     /* margin: 40px; */
 }
+
+.refresh{
+    display: block;
+    margin: auto;
+    background-color: aqua;
+    padding: 10px;
+    
+}
+
 .side input{
     width: 10%;
     margin: 10px;

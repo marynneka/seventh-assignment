@@ -3,6 +3,7 @@ const submit = document.getElementById("submit");
 const result = document.querySelector("#result")
 const refresh = document.getElementById("play-again")
 const numberOfClick = document.querySelector(".number-Of-click");
+const side = document.querySelector(".side");
 let guess = 27;
 let click = 5;
 
@@ -22,24 +23,30 @@ function getValue() {
         result.innerHTML = `You win !!!  Your guess was ${guess}`
         result.style.color = 'green'
         submit.style.display = 'none'
-        refresh.innerHTML = 'Refresh'
+        reload()
     }
 }
 
 function clickCounts() {
     click--;
     numberOfClick.textContent = click;
-    if (inputValue > guess && click === 0) {
-        result.innerHTML = `your guess is high and the guess is ${guess}`
-    }
-    else if (inputValue < guess && click === 0) {
-        result.innerHTML = `your guess is low and the guess is ${guess}`
-    }
-    else if (click === 0) {
+    if (click === 0) {
         refresh.innerHTML = 'Refresh the page to play again'
         submit.style.display = 'none'
+        reload()
     }
 }
+
+function reload() {
+const refresh = document.createElement("button")
+refresh.className= 'refresh'
+refresh.textContent = 'refresh'
+side.appendChild(refresh)
+refresh.addEventListener ('click', function() {
+    location.reload()
+})
+}
+
 
 submit.addEventListener("click", () => {
     clickCounts()
